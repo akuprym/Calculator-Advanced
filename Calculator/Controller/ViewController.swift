@@ -2,8 +2,7 @@
 //  ViewController.swift
 //  Calculator
 //
-//  Created by Angela Yu on 10/09/2019.
-//  Copyright © 2019 London App Brewery. All rights reserved.
+// Created by admin on 06.02.23.
 //
 
 import UIKit
@@ -26,21 +25,23 @@ class ViewController: UIViewController {
         }
     }
     
+    private var calculator = CalculatorLogic()
+    
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         
         //What should happen when a non-number button is pressed
+        
         isFinishedTypingNumber = true
       
+        calculator.setNumber(displayValue)
+        
         if let calcMethod = sender.currentTitle {
-            if calcMethod == "+/-" {
-                displayLabel.text = String(displayValue * -1)
-            } else if calcMethod == "AC" {
-                displayLabel.text = "0"
-            } else if calcMethod == "%" {
-                displayLabel.text = String(displayValue/100)
+            
+            if let result = calculator.calculate(symbol: calcMethod) {
+                displayValue = result
+                
             }
         }
-        
     }
 
     
