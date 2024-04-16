@@ -1,3 +1,3 @@
 Udemy Bootcamp Project 2023
 
-Advanced Calculator similar to iPhone's. 
+Advanced Calculator with all the Calculator logic.
